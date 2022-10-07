@@ -1,16 +1,14 @@
 package fr.hycraft.commands;
 
 import org.bukkit.Bukkit;
-import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
-import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.SkullMeta;
 
 import fr.hycraft.Rewards;
 import fr.hycraft.inventory.InventoryRewards;
+import fr.hycraft.items.Items;
 
 public class Commands implements CommandExecutor
 {
@@ -39,18 +37,14 @@ public class Commands implements CommandExecutor
 		{
 			if (args.length == 0)
 			{
-				ItemStack luckyBlock = new ItemStack(Material.PLAYER_HEAD);
-				SkullMeta luckyMeta  = (SkullMeta) luckyBlock.getItemMeta();
-				luckyMeta.setOwningPlayer(player);
-				luckyMeta.setDisplayName("§6Lucky Block");
-				luckyBlock.setItemMeta(luckyMeta);
-				if (!player.getInventory().contains(luckyBlock))
+				Items item = new Items(player);
+				if (!player.getInventory().contains(item.luckyBlock()))
 				{
-					player.getInventory().addItem(luckyBlock);
-					player.sendMessage(Rewards.PREFIX + "§aChouette ! §7Aujourd'hui vous avez un §6Lucky Block");
+					player.getInventory().addItem(item.luckyBlock());
+					player.sendMessage(Rewards.PREFIX + "§aChouette ! §7Aujourd'hui vous avez §ax1 §6Lucky Block");
 					return true;
 				}
-				player.sendMessage(Rewards.PREFIX + "§cMince ! §7Vous ne pouvez pas avoir de nouveau un §6Lucky Block §7vous en possèdez déjà §c1 §7dans votre inventaire.");
+				player.sendMessage(Rewards.PREFIX + "§cMince ! §7Vous ne pouvez pas avoir de nouveau un §6Lucky Block §7vous en possèdez déjà §cx1 §7dans votre inventaire.");
 				return false;
 			}
 		}

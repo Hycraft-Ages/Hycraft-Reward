@@ -6,7 +6,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.hycraft.commands.Commands;
 import fr.hycraft.inventory.InventoryRewards;
-import fr.hycraft.listeners.RewardsEvent;
+import fr.hycraft.listeners.JoinPlayer;
 
 public class Rewards extends JavaPlugin
 {
@@ -37,7 +37,7 @@ public class Rewards extends JavaPlugin
 	{
 		PluginManager pluginManager = Bukkit.getPluginManager();
 		
-		pluginManager.registerEvents(new RewardsEvent(this), this);
+		pluginManager.registerEvents(new JoinPlayer(this), this);
 		pluginManager.registerEvents(new InventoryRewards(this), this);
 	}
 	
