@@ -5,6 +5,7 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import fr.hycraft.commands.Commands;
+import fr.hycraft.inventory.InventoryRewards;
 import fr.hycraft.listeners.RewardsEvent;
 
 public class Rewards extends JavaPlugin
@@ -15,7 +16,7 @@ public class Rewards extends JavaPlugin
 	@Override
 	public void onEnable()
 	{
-		Bukkit.getServer().getConsoleSender().sendMessage(PREFIX + "");
+		Bukkit.getServer().getConsoleSender().sendMessage(PREFIX + "Le plugin vient de s §aallumer");
 		onCommands();
 		onListeners();
 	}
@@ -23,7 +24,7 @@ public class Rewards extends JavaPlugin
 	@Override
 	public void onDisable()
 	{
-		Bukkit.getServer().getConsoleSender().sendMessage(PREFIX + "");
+		Bukkit.getServer().getConsoleSender().sendMessage(PREFIX + "Le plugin vient de s §ceteindre");
 	}
 
 	private void onCommands()
@@ -37,6 +38,7 @@ public class Rewards extends JavaPlugin
 		PluginManager pluginManager = Bukkit.getPluginManager();
 		
 		pluginManager.registerEvents(new RewardsEvent(this), this);
+		pluginManager.registerEvents(new InventoryRewards(this), this);
 	}
 	
 }
