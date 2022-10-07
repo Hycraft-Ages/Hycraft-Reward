@@ -1,0 +1,15 @@
+version: 0.1
+name: Hycraft-Rewards
+main: fr.hycraft.Rewards
+api-version: 1.15
+author: [JustOp, Blackbalrog]
+description: plugin rewards
+
+commands:
+
+  rewards:
+    description: Ouvre le menu des recompenses
+    permission: hycraftrewards.use.rewards
+    
+  dailyLuckyBlocks:
+    description: Donne les LuckyBlocks journaliers
