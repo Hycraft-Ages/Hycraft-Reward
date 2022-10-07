@@ -58,9 +58,9 @@ public class InventoryRewards implements Listener
 			inventaire.setItem(slot_carre, FILLER_CARRE);
 		}
 		
-		inventaire.setItem(20, FEATHER);
-		inventaire.setItem(21, PLAPIN);
-		inventaire.setItem(22, STEACK);
+		inventaire.setItem(21, FEATHER);
+		inventaire.setItem(22, PLAPIN);
+		inventaire.setItem(23, STEACK);
 		
 		inventaire.setItem(48, NEXT_PAGE);
 		inventaire.setItem(50, MONEY);
@@ -86,19 +86,19 @@ public class InventoryRewards implements Listener
 			switch (event.getSlot())
 			{
 				case 20:
-					event.getView().getItem(20).getItemMeta().setLore(Arrays.asList(new String[] {"", "Clique pour emporter par un", "de vitesse !"}));
+					event.getView().getItem(21).getItemMeta().setLore(Arrays.asList(new String[] {"", "Clique pour emporter par un", "de vitesse !"}));
 					player.getInventory().addItem(FEATHER);
 					player.sendMessage(message + SPEED);
 					break;
 					
 				case 21:
-					event.getView().getItem(21).getItemMeta().setLore(Arrays.asList(new String[] { "", "clique pour pouvoir", "te projeter dans", "les airs comme", "un kangourou !" }));
+					event.getView().getItem(22).getItemMeta().setLore(Arrays.asList(new String[] { "", "clique pour pouvoir", "te projeter dans", "les airs comme", "un kangourou !" }));
 					player.getInventory().addItem(PLAPIN);
 					player.sendMessage(message + JUMP);
 					break;
 					
 				case 22:
-					event.getView().getItem(21).getItemMeta().setLore(Arrays.asList(new String[] { "", "Clique pour te", "rassasier !" }));
+					event.getView().getItem(23).getItemMeta().setLore(Arrays.asList(new String[] { "", "Clique pour te", "rassasier !" }));
 					player.getInventory().addItem(STEACK);
 					player.sendMessage(message + FEED);
 					break;
@@ -111,7 +111,7 @@ public class InventoryRewards implements Listener
 		ItemStack item = new ItemStack(material);
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(name);
-		meta.setLore(Arrays.asList(lore));
+		if (!(lore == null)) meta.setLore(Arrays.asList(lore));
 		meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
 		meta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS });
 		item.setItemMeta(meta);
