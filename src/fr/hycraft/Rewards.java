@@ -11,12 +11,12 @@ import fr.hycraft.listeners.JoinPlayer;
 public class Rewards extends JavaPlugin
 {
 
-	public static String PREFIX = "§8[§4Hycraft-Reward§8] ";
+	public static String PREFIX = "Â§8[Â§4Hycraft-RewardÂ§8] ";
 	
 	@Override
 	public void onEnable()
 	{
-		Bukkit.getServer().getConsoleSender().sendMessage(PREFIX + "Le plugin vient de s §aallumer");
+		Bukkit.getServer().getConsoleSender().sendMessage(PREFIX + "Le plugin vient de Â§as'allumer");
 		onCommands();
 		onListeners();
 	}
@@ -24,7 +24,7 @@ public class Rewards extends JavaPlugin
 	@Override
 	public void onDisable()
 	{
-		Bukkit.getServer().getConsoleSender().sendMessage(PREFIX + "Le plugin vient de s §ceteindre");
+		Bukkit.getServer().getConsoleSender().sendMessage(PREFIX + "Le plugin vient de Â§cs'Ã©teindre");
 	}
 
 	private void onCommands()

@@ -20,7 +20,7 @@ public class Items
 		ItemStack luckyBlock = new ItemStack(Material.PLAYER_HEAD);
 		SkullMeta luckyMeta  = (SkullMeta) luckyBlock.getItemMeta();
 		luckyMeta.setOwningPlayer(player);
-		luckyMeta.setDisplayName("ง6Lucky Block");
+		luckyMeta.setDisplayName("ยง6Lucky Block");
 		luckyBlock.setItemMeta(luckyMeta);
 		return luckyBlock;
 	}

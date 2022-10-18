@@ -21,11 +21,11 @@ public class InventoryRewards implements Listener
 
 	private static Inventory inventaire = Bukkit.createInventory(null, 54, "Menu Rewards");
 	
-	private static String SPEED = "§3§lSpeed Tool";
-	private static String JUMP = "§a§lJump Tool";
-	private static String FEED = "§6§lFeed Tool";
+	private static String SPEED = "Â§3Â§lSpeed Tool";
+	private static String JUMP = "Â§aÂ§lJump Tool";
+	private static String FEED = "Â§6Â§lFeed Tool";
 	
-	private static String DESCRIPTION = "§7Clique pour acheter l'item";
+	private static String DESCRIPTION = "Â§7Clique pour acheter l'item";
 	
 	private static ItemStack FEATHER = newItem(Material.FEATHER, SPEED, new String[] {"", DESCRIPTION});
 	private static ItemStack PLAPIN = newItem(Material.RABBIT_FOOT, JUMP, new String[] {"", DESCRIPTION});
@@ -34,9 +34,9 @@ public class InventoryRewards implements Listener
 	private static ItemStack FILLER = newItem(Material.BLUE_STAINED_GLASS_PANE, " ", null);
 	private static ItemStack FILLER_CARRE = newItem(Material.LIME_STAINED_GLASS_PANE, " ", null);
 	
-	private static ItemStack NEXT_PAGE = newItem(Material.ARROW, "suivante", new String[]{"Clique pour passer", "à la page suivante."});
-	//private static ItemStack BACK_PAGE = newItem(Material.ARROW, "precèdente", new String[]{"Clique pour retourner", "à la page d'avant."});
-	private static ItemStack MONEY = newItem(Material.GOLD_INGOT, "§7Argent:", new String[] {"", "§e{le nombre de money}"});
+	private static ItemStack NEXT_PAGE = newItem(Material.ARROW, "suivante", new String[]{"Clique pour passer", "Ã  la page suivante."});
+	//private static ItemStack BACK_PAGE = newItem(Material.ARROW, "precedente", new String[]{"Clique pour retourner", "Ã  la page d'avant."});
+	private static ItemStack MONEY = newItem(Material.GOLD_INGOT, "Â§7Argent:", new String[] {"", "Â§e{le nombre de money}"});
 
 	private static int[] slots_carre = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53 };
 	
@@ -81,7 +81,7 @@ public class InventoryRewards implements Listener
 			
 			if (event.getClickedInventory() == null || clickedItem == null) return;
 			
-			String message = Rewards.PREFIX + "§7Tu as acheté le ";
+			String message = Rewards.PREFIX + "Â§7Tu as achetÃ© le ";
 			
 			switch (event.getSlot())
 			{

@@ -27,18 +27,18 @@ public class JoinPlayer implements Listener
 		SkullMeta luckyMeta  = (SkullMeta) luckyBlock.getItemMeta();
 		
 		luckyMeta.setOwningPlayer(player);
-		luckyMeta.setDisplayName("§6Lucky Block");
+		luckyMeta.setDisplayName("Â§6Lucky Block");
 		luckyBlock.setItemMeta(luckyMeta);
 		
 		if (player.getInventory().contains(luckyBlock))
 		{
-			player.sendMessage(Rewards.PREFIX + "§cMince ! \n§7Vous ne pouvez pas avoir de nouveau un §6Lucky Block §7vous en possèdez déjà §cx1 §7dans votre inventaire.");
+			player.sendMessage(Rewards.PREFIX + "Â§cMince ! \nÂ§7Vous ne pouvez pas avoir de nouveau un Â§6Lucky Block Â§7vous en possÃ¨dez dÃ©jÃ  Â§cx1 Â§7dans votre inventaire.");
 			return;
 		}
 		else
 		{
 			player.getInventory().addItem(luckyBlock);
-			player.sendMessage(Rewards.PREFIX + "§aChouette ! \n§7Aujourd'hui vous avez §ax1 §6Lucky Block");
+			player.sendMessage(Rewards.PREFIX + "Â§aChouette ! \nÂ§7Aujourd'hui vous avez Â§ax1 Â§6Lucky Block");
 		}
 	}
 }
