@@ -9,22 +9,22 @@ import org.bukkit.entity.Player;
 import fr.hycraft.Rewards;
 import fr.hycraft.inventory.InventoryRewards;
 import fr.hycraft.items.Items;
+import fr.hycraft.items.Kits;
 
 public class Commands implements CommandExecutor
 {
-
 	@Override
-	public boolean onCommand(CommandSender sender, Command command, String label, String[] args)
+	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
 		if (!(sender instanceof Player))
 		{
-			Bukkit.getServer().getConsoleSender().sendMessage(Rewards.PREFIX + "§cSeul un joueur peut effectuer cette commande");
+			Bukkit.getServer().getConsoleSender().sendMessage(Rewards.PREFIX + "Â§cSeul un joueur peut effectuer cette commande");
 			return false;
 		}
-		
+
 		Player player = (Player) sender;
-		
-		if (command.getName().equalsIgnoreCase("rewards"))
+
+		if (cmd.getName().equalsIgnoreCase("rewards"))
 		{
 			if (args.length == 0)
 			{
@@ -32,8 +32,8 @@ public class Commands implements CommandExecutor
 				return true;
 			}
 		}
-		
-		if (command.getName().equalsIgnoreCase("dailyLuckyBlocks"))
+
+		if (cmd.getName().equalsIgnoreCase("dailyLuckyBlocks"))
 		{
 			if (args.length == 0)
 			{
@@ -41,11 +41,20 @@ public class Commands implements CommandExecutor
 				if (!player.getInventory().contains(item.luckyBlock()))
 				{
 					player.getInventory().addItem(item.luckyBlock());
-					player.sendMessage(Rewards.PREFIX + "§aChouette ! §7Aujourd'hui vous avez §ax1 §6Lucky Block");
+					player.sendMessage(Rewards.PREFIX + "ï¿½aChouette ! ï¿½7Aujourd'hui vous avez ï¿½ax1 ï¿½6Lucky Block");
 					return true;
 				}
-				player.sendMessage(Rewards.PREFIX + "§cMince ! §7Vous ne pouvez pas avoir de nouveau un §6Lucky Block §7vous en possèdez déjà §cx1 §7dans votre inventaire.");
+				player.sendMessage(Rewards.PREFIX + "Â§cMince ! Â§7Vous ne pouvez pas avoir de nouveau un Â§6Lucky Block Â§7vous en possedez deja Â§cx1 Â§7dans votre inventaire.");
 				return false;
+			}
+		}
+
+		if (cmd.getName().equalsIgnoreCase("daily"))
+		{
+			if (args.length == 0)
+			{
+				Kits kits = new Kits(player, Rewards.getPlugin(Rewards.class));
+				kits.addKit(player);
 			}
 		}
 		return false;

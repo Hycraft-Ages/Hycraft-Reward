@@ -13,3 +13,8 @@ commands:
     
   dailyLuckyBlocks:
     description: Donne les LuckyBlocks journaliers
+    permission: hycraftrewards.use.dailyluckyblocks
+  
+  daily:
+    description: Te donne ton kit quotidien
+    permission: hycraftrewards.use.daily

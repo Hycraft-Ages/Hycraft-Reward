@@ -9,20 +9,20 @@ public class Items
 {
 
 	private Player player;
-	
+
 	public Items(Player player)
 	{
 		this.player = player;
 	}
-	
+
 	public ItemStack luckyBlock()
 	{
 		ItemStack luckyBlock = new ItemStack(Material.PLAYER_HEAD);
-		SkullMeta luckyMeta  = (SkullMeta) luckyBlock.getItemMeta();
+		SkullMeta luckyMeta = (SkullMeta) luckyBlock.getItemMeta();
 		luckyMeta.setOwningPlayer(player);
-		luckyMeta.setDisplayName("§6Lucky Block");
+		luckyMeta.setDisplayName("ï¿½6Lucky Block");
 		luckyBlock.setItemMeta(luckyMeta);
 		return luckyBlock;
 	}
-	
+
 }

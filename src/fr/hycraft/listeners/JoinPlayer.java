@@ -13,7 +13,7 @@ public class JoinPlayer implements Listener
 
 	public JoinPlayer(Rewards main)
 	{
-		
+
 	}
 
 	@EventHandler
@@ -21,16 +21,16 @@ public class JoinPlayer implements Listener
 	{
 		Player player = event.getPlayer();
 		Items item = new Items(player);
-		
+
 		if (player.getInventory().containsAtLeast(item.luckyBlock(), 0))
 		{
 			player.getInventory().addItem(item.luckyBlock());
-			player.sendMessage(Rewards.PREFIX + "§aChouette ! \n§7Aujourd'hui vous avez §ax1 §6Lucky Block");
+			player.sendMessage(Rewards.PREFIX + "Â§aChouette ! Â§7Aujourd'hui vous avez Â§ax1 Â§6Lucky Block");
 		}
-		
+
 		else if (player.getInventory().containsAtLeast(item.luckyBlock(), 1))
 		{
-			player.sendMessage(Rewards.PREFIX + "§cMince ! \n§7Vous ne pouvez pas avoir de nouveau un §6Lucky Block §7vous en possèdez déjà §cx1 §7dans votre inventaire.");
+			player.sendMessage(Rewards.PREFIX + "Â§cMince ! Â§7Vous ne pouvez pas avoir de nouveau un Â§6Lucky Block Â§7vous en possedez deja Â§cx1 Â§7dans votre inventaire.");
 			return;
 		}
 	}
