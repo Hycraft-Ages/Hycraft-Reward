@@ -38,10 +38,10 @@ public class Commands implements CommandExecutor
 		{
 			if (args.length == 0)
 			{
-				Items item = new Items(player);
-				if (!player.getInventory().contains(item.luckyBlock()))
+				Items item = new Items();
+				if (!player.getInventory().contains(item.luckyBlock(player)))
 				{
-					player.getInventory().addItem(item.luckyBlock());
+					player.getInventory().addItem(item.luckyBlock(player));
 					player.sendMessage(Rewards.PREFIX + "§aChouette ! §7Aujourd'hui vous avez §ax1 §6Lucky Block");
 					return true;
 				}

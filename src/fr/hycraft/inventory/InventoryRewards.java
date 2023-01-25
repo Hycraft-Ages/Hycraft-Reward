@@ -4,17 +4,16 @@ import java.util.Arrays;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
-import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.inventory.Inventory;
-import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import fr.hycraft.Rewards;
+import fr.hycraft.items.Items;
 
 public class InventoryRewards implements Listener
 {
@@ -27,16 +26,16 @@ public class InventoryRewards implements Listener
 	
 	private String DESCRIPTION = "§7Clique pour acheter l'item";
 	
-	private ItemStack FEATHER = newItem(Material.FEATHER, SPEED, new String[] {"", DESCRIPTION});
-	private ItemStack RABBIT = newItem(Material.RABBIT_FOOT, JUMP, new String[] {"", DESCRIPTION});
-	private ItemStack STEACK = newItem(Material.COOKED_BEEF, FEED, new String[] {"", DESCRIPTION});
+	public ItemStack FEATHER = new Items().newItem(Material.FEATHER, SPEED, new String[] {"", DESCRIPTION});
+	public ItemStack RABBIT = new Items().newItem(Material.RABBIT_FOOT, JUMP, new String[] {"", DESCRIPTION});
+	public ItemStack STEACK = new Items().newItem(Material.COOKED_BEEF, FEED, new String[] {"", DESCRIPTION});
 	
-	private ItemStack FILLER = newItem(Material.BLUE_STAINED_GLASS_PANE, " ", null);
-	private ItemStack FILLER_CARRE = newItem(Material.LIME_STAINED_GLASS_PANE, " ", null);
+	private ItemStack FILLER = new Items().newItem(Material.BLUE_STAINED_GLASS_PANE, " ", null);
+	private ItemStack FILLER_CARRE = new Items().newItem(Material.LIME_STAINED_GLASS_PANE, " ", null);
 	
-	private ItemStack NEXT_PAGE = newItem(Material.ARROW, "suivante", new String[]{"Clique pour passer", "à la page suivante."});
+	private ItemStack NEXT_PAGE = new Items().newItem(Material.ARROW, "suivante", new String[]{"Clique pour passer", "à la page suivante."});
 	//private static ItemStack BACK_PAGE = newItem(Material.ARROW, "precedente", new String[]{"Clique pour retourner", "à la page d'avant."});
-	private ItemStack MONEY = newItem(Material.GOLD_INGOT, "§7Argent:", new String[] {"", "§e{le nombre de money}"});
+	private ItemStack MONEY = new Items().newItem(Material.GOLD_INGOT, "§7Argent:", new String[] {"", "§e{le nombre de money}"});
 
 	private int[] slots_carre = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53 };
 	
@@ -102,17 +101,4 @@ public class InventoryRewards implements Listener
 		player.getInventory().addItem(item);
 		player.sendMessage(Rewards.PREFIX + "§7Tu as acheté le " + itemName);
 	}
-	
-	private ItemStack newItem(Material material, String name, String[] lore)
-	{
-		ItemStack item = new ItemStack(material);
-		ItemMeta meta = item.getItemMeta();
-		meta.setDisplayName(name);
-		if (!(lore == null)) meta.setLore(Arrays.asList(lore));
-		meta.addEnchant(Enchantment.DAMAGE_ALL, 1, true);
-		meta.addItemFlags(new ItemFlag[] { ItemFlag.HIDE_ENCHANTS });
-		item.setItemMeta(meta);
-		return item;
-	}
-
 }
