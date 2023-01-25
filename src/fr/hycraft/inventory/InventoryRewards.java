@@ -19,33 +19,29 @@ import fr.hycraft.Rewards;
 public class InventoryRewards implements Listener
 {
 
-	private static Inventory inventaire = Bukkit.createInventory(null, 54, "Menu Rewards");
+	private Inventory inventaire = Bukkit.createInventory(null, 54, "Menu Rewards");
 	
-	private static String SPEED = "§3§lSpeed Tool";
-	private static String JUMP = "§a§lJump Tool";
-	private static String FEED = "§6§lFeed Tool";
+	private String SPEED = "§3§lSpeed Tool";
+	private String JUMP =  "§a§lJump Tool";
+	private String FEED =  "§6§lFeed Tool";
 	
-	private static String DESCRIPTION = "§7Clique pour acheter l'item";
+	private String DESCRIPTION = "§7Clique pour acheter l'item";
 	
-	private static ItemStack FEATHER = newItem(Material.FEATHER, SPEED, new String[] {"", DESCRIPTION});
-	private static ItemStack PLAPIN = newItem(Material.RABBIT_FOOT, JUMP, new String[] {"", DESCRIPTION});
-	private static ItemStack STEACK = newItem(Material.COOKED_BEEF, FEED, new String[] {"", DESCRIPTION});
+	private ItemStack FEATHER = newItem(Material.FEATHER, SPEED, new String[] {"", DESCRIPTION});
+	private ItemStack RABBIT = newItem(Material.RABBIT_FOOT, JUMP, new String[] {"", DESCRIPTION});
+	private ItemStack STEACK = newItem(Material.COOKED_BEEF, FEED, new String[] {"", DESCRIPTION});
 	
-	private static ItemStack FILLER = newItem(Material.BLUE_STAINED_GLASS_PANE, " ", null);
-	private static ItemStack FILLER_CARRE = newItem(Material.LIME_STAINED_GLASS_PANE, " ", null);
+	private ItemStack FILLER = newItem(Material.BLUE_STAINED_GLASS_PANE, " ", null);
+	private ItemStack FILLER_CARRE = newItem(Material.LIME_STAINED_GLASS_PANE, " ", null);
 	
-	private static ItemStack NEXT_PAGE = newItem(Material.ARROW, "suivante", new String[]{"Clique pour passer", "à la page suivante."});
+	private ItemStack NEXT_PAGE = newItem(Material.ARROW, "suivante", new String[]{"Clique pour passer", "à la page suivante."});
 	//private static ItemStack BACK_PAGE = newItem(Material.ARROW, "precedente", new String[]{"Clique pour retourner", "à la page d'avant."});
-	private static ItemStack MONEY = newItem(Material.GOLD_INGOT, "§7Argent:", new String[] {"", "§e{le nombre de money}"});
+	private ItemStack MONEY = newItem(Material.GOLD_INGOT, "§7Argent:", new String[] {"", "§e{le nombre de money}"});
 
-	private static int[] slots_carre = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53 };
+	private int[] slots_carre = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 17, 18, 26, 27, 35, 36, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53 };
 	
-	public InventoryRewards(Rewards main)
-	{
-
-	}
-
-	public static void openInventory(Player player)
+	
+	public void openInventory(Player player)
 	{
 		
 		for (int fill = 0; fill < 53; fill++)
@@ -59,7 +55,7 @@ public class InventoryRewards implements Listener
 		}
 		
 		inventaire.setItem(21, FEATHER);
-		inventaire.setItem(22, PLAPIN);
+		inventaire.setItem(22, RABBIT);
 		inventaire.setItem(23, STEACK);
 		
 		inventaire.setItem(48, NEXT_PAGE);
@@ -81,32 +77,33 @@ public class InventoryRewards implements Listener
 			
 			if (event.getClickedInventory() == null || clickedItem == null) return;
 			
-			String message = Rewards.PREFIX + "§7Tu as acheté le ";
-			
 			switch (event.getSlot())
 			{
-				case 20:
-					event.getView().getItem(21).getItemMeta().setLore(Arrays.asList(new String[] {"", "Clique pour emporter par un", "de vitesse !"}));
-					player.getInventory().addItem(FEATHER);
-					player.sendMessage(message + SPEED);
-					break;
-					
 				case 21:
-					event.getView().getItem(22).getItemMeta().setLore(Arrays.asList(new String[] { "", "clique pour pouvoir", "te projeter dans", "les airs comme", "un kangourou !" }));
-					player.getInventory().addItem(PLAPIN);
-					player.sendMessage(message + JUMP);
+					giveItem(event, player, 21, FEATHER, SPEED, new String[] { "", "Clique pour emporter par un vent", "de vitesse !" });
 					break;
 					
 				case 22:
-					event.getView().getItem(23).getItemMeta().setLore(Arrays.asList(new String[] { "", "Clique pour te", "rassasier !" }));
-					player.getInventory().addItem(STEACK);
-					player.sendMessage(message + FEED);
+					giveItem(event, player, 22, RABBIT, JUMP, new String[] { "", "clique pour pouvoir", "te projeter dans", "les airs comme", "un kangourou !" });
+					break;
+					
+				case 23:
+					giveItem(event, player, 23, STEACK, FEED, new String[] { "", "Clique pour te", "rassasier !" });
 					break;
 			}
 		}
 	}
 	
-	private static ItemStack newItem(Material material, String name, String[] lore)
+	private void giveItem(InventoryClickEvent event, Player player, int slot, ItemStack item, String itemName, String[] lore)
+	{
+		ItemMeta meta = item.getItemMeta();
+		meta.setLore(Arrays.asList(lore));
+		item.setItemMeta(meta);
+		player.getInventory().addItem(item);
+		player.sendMessage(Rewards.PREFIX + "§7Tu as acheté le " + itemName);
+	}
+	
+	private ItemStack newItem(Material material, String name, String[] lore)
 	{
 		ItemStack item = new ItemStack(material);
 		ItemMeta meta = item.getItemMeta();

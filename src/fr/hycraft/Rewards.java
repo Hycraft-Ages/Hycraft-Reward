@@ -37,8 +37,8 @@ public class Rewards extends JavaPlugin
 	{
 		PluginManager pluginManager = Bukkit.getPluginManager();
 		
-		pluginManager.registerEvents(new JoinPlayer(this), this);
-		pluginManager.registerEvents(new InventoryRewards(this), this);
+		pluginManager.registerEvents(new JoinPlayer(), this);
+		pluginManager.registerEvents(new InventoryRewards(), this);
 	}
 	
 }

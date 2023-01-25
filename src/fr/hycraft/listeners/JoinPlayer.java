@@ -12,17 +12,12 @@ import fr.hycraft.Rewards;
 
 public class JoinPlayer implements Listener
 {
-
-	public JoinPlayer(Rewards main)
-	{
-		
-	}
-	
 	
 	@EventHandler
-	public void onJoinPlayer(PlayerJoinEvent event)
+	public void onJoin(PlayerJoinEvent event)
 	{
 		Player player = event.getPlayer();
+		
 		ItemStack luckyBlock = new ItemStack(Material.PLAYER_HEAD);
 		SkullMeta luckyMeta  = (SkullMeta) luckyBlock.getItemMeta();
 		

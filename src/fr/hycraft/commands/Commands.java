@@ -28,7 +28,8 @@ public class Commands implements CommandExecutor
 		{
 			if (args.length == 0)
 			{
-				InventoryRewards.openInventory(player);
+				InventoryRewards inventory = new InventoryRewards();
+				inventory.openInventory(player);
 				return true;
 			}
 		}
@@ -44,7 +45,7 @@ public class Commands implements CommandExecutor
 					player.sendMessage(Rewards.PREFIX + "§aChouette ! §7Aujourd'hui vous avez §ax1 §6Lucky Block");
 					return true;
 				}
-				player.sendMessage(Rewards.PREFIX + "§cMince ! §7Vous ne pouvez pas avoir de nouveau un §6Lucky Block §7vous en poss§dez déjà §cx1 §7dans votre inventaire.");
+				player.sendMessage(Rewards.PREFIX + "§cMince ! §7Vous ne pouvez pas avoir de nouveau un §6Lucky Block §7vous en possèdez déjà §cx1 §7dans votre inventaire.");
 				return false;
 			}
 		}
