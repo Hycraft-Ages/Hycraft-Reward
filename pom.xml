@@ -8,6 +8,14 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>Hycraft-Reward</name>
   
+  	<properties>
+		<encoding>UTF-8</encoding>
+		<project.build.sourceEncoding>${encoding}</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>${encoding}</project.reporting.outputEncoding>
+		<project.resources.sourceEncoding>${encoding}</project.resources.sourceEncoding>
+		<archetype.encoding>${encoding}</archetype.encoding>
+	</properties>
+  
 	<build>
 		<sourceDirectory>src</sourceDirectory>
 		<resources>
