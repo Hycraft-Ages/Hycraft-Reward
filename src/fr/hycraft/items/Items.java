@@ -4,7 +4,6 @@ import java.util.Arrays;
 
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
-import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -14,19 +13,7 @@ public class Items
 {
 	
 	private SkullMeta SKULLMETA;
-	
-	public ItemStack luckyBlock(Player player)
-	{
-		ItemStack luckyBlock = new ItemStack(Material.PLAYER_HEAD);
-		SkullMeta luckyMeta  = (SkullMeta) luckyBlock.getItemMeta();
-		
-		luckyMeta.setOwningPlayer(player);
-		luckyMeta.setDisplayName("§6Lucky Block");
-		this.SKULLMETA = luckyMeta;
-		luckyBlock.setItemMeta(luckyMeta);
-		return luckyBlock;
-	}
-	
+
 	public SkullMeta getSkullMeta()
 	{
 		return SKULLMETA;

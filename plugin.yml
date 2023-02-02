@@ -13,3 +13,7 @@ commands:
     
   dailyLuckyBlocks:
     description: Donne les LuckyBlocks journaliers
+    
+permissions:
+  hycraft.reward.staff:
+    description: permission de la commande reward
